@@ -241,30 +241,39 @@ public class AVLTree {
 
         System.out.println("Árbol AVL Vacío");
 
-        while (true) {
-            System.out.print("Ingrese un número para insertar (-1 para finalizar la inserción): ");
-            int num = scanner.nextInt();
-            if (num == -1) {
-                break;
+        try {
+            while (true) {
+                System.out.print("Ingrese un número para insertar (-1 para finalizar la inserción): ");
+                int num = scanner.nextInt();
+                if (num == -1) {
+                    break;
+                }
+                tree.insert(num);
             }
-            tree.insert(num);
-        }
 
-        System.out.println("Árbol AVL ordenado:");
-        tree.displayTree();
-
-        
-        System.out.print("¿Desea eliminar un número? (S/N): ");
-        scanner.nextLine(); 
-        String response = scanner.nextLine().trim().toUpperCase();
-        
-        if (response.equals("S")) {
-            System.out.print("Ingrese el número que desea eliminar: ");
-            int numToDelete = scanner.nextInt();
-            tree.delete(numToDelete);
-
-            System.out.println("Árbol AVL actualizado:");
+            System.out.println("Árbol AVL ordenado:");
             tree.displayTree();
+
+           
+            System.out.print("¿Desea eliminar un número? (S/N): ");
+            scanner.nextLine(); 
+            String response = scanner.nextLine().trim().toUpperCase();
+
+            if (response.equals("S")) {
+                System.out.print("Ingrese el número que desea eliminar: ");
+                int numToDelete = scanner.nextInt();
+                tree.delete(numToDelete);
+
+                System.out.println("Árbol AVL actualizado:");
+                tree.displayTree();
+            }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
         }
     }
 }
+
+
+
+
+
